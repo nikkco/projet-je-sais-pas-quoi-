@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Findeur</title>
+    <style>
+        .profile-link {
+            position: relative;
+            top: 20px;
+            left: 1300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-link">
+    <p> <a href='change.html'>Change your profile</a></p>
+    </div>
+    <h1>Welcome {{username}}!</h1>
+    <h2>Please choose your match:</h2>
+
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+
+    <form method="get" action="/welcome">
+        <ul>
+            {% for user in users %}
+                <li>
+                    {{ user.username }}
+                    <label>
+                        <input type="radio" name="like{{ user.username }}" value="like"> Like
+                    </label>
+                    <label>
+                        <input type="radio" name="like{{ user.username }}" value="dislike"> Dislike
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+    
+
+
+
+
+
+
+
